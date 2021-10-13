@@ -1,0 +1,35 @@
+<html>
+	<head>
+    <meta charset="utf-8">
+		<title>Arytmetyka</title>
+		<style>
+			.math {
+				font-size: 32px;
+			}
+		</style>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=AM_CHTML"></script>
+		<script>
+      const operators = ['+', '-', '*']
+      
+      randomNonZeroDigit = () => Math.floor((Math.random()*9)+1)
+
+      randomOperator = () => operators[Math.floor(Math.random()*operators.length)]
+
+      randomOperation = () => `${randomNonZeroDigit()} ${randomOperator()} ${randomNonZeroDigit()} ${randomOperator()} ${randomNonZeroDigit()} ${randomOperator()} ${randomNonZeroDigit()} =`
+
+      withBackticks = (math) => "`" + math + "`"
+  </script>
+	</head>
+	<body>
+    <a href="index.html">powrót</a>
+    <hr />
+    <div class="math">
+			<script>
+				for (let i = 0; i < 10; i++) {
+					document.write(withBackticks(randomOperation()))
+					document.write('<br /><br />')
+				}
+			</script>	
+		</div>	
+	</body>
+</html>

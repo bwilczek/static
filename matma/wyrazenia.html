@@ -1,0 +1,39 @@
+<html>
+	<head>
+    <meta charset="utf-8">
+		<title>Wyrażenia</title>
+		<style>
+			.math {
+				font-size: 32px;
+			}
+		</style>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=AM_CHTML"></script>
+		<script>
+      const operators = ['+', '-', '*']
+      
+      randomNonZeroDigit = () => Math.floor((Math.random()*9)+1)
+
+      randomOperand = () => {
+        let ret = `${randomNonZeroDigit()}${Math.random() > 0.5 ? '' : 'x'}`
+        return ret.replace('1x', 'x')
+      }
+      randomOperator = () => operators[Math.floor(Math.random()*operators.length)]
+
+      randomOperation = () => `${randomOperand()} ${randomOperator()} ${randomOperand()} ${randomOperator()} ${randomOperand()} ${randomOperator()} ${randomOperand()} ${randomOperator()} ${randomOperand()} ${randomOperator()} ${randomOperand()} =`
+
+      withBackticks = (math) => "`" + math + "`"
+  </script>
+	</head>
+	<body>
+    <a href="index.html">powrót</a>
+    <hr />
+    <div class="math">
+      <script>
+        for (let i = 0; i < 10; i++) {
+          document.write(withBackticks(randomOperation()))
+          document.write('<br /><br />')
+        }
+      </script>
+      </div>
+  </body>
+</html>
